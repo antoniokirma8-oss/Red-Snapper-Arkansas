@@ -214,6 +214,25 @@ a:hover{ color: #000; }
 
 .menu-item .name{ font-weight: 700; }
 
+/* ensure long names wrap and don't push the container wider */
+.menu-item{
+  /* allow children to wrap onto multiple lines when necessary */
+  flex-wrap: wrap;
+}
+
+.menu-item > div:first-child{
+  /* keep the name container flexible but able to shrink for wrapping */
+  flex: 1 1 auto;
+  min-width: 0; /* required for flex items to actually wrap */
+}
+
+.menu-item .name{
+  /* break words and slightly reduce size to help fit in narrow cards */
+  word-break: break-word;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
 .menu-item .price{
   font-weight: 800;
   color: #000000;
